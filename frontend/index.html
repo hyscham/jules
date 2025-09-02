@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TTS Robot</title>
+    <title>TTS Robot (Darija)</title>
     <style>
         body {
             font-family: sans-serif;
@@ -38,7 +38,7 @@
         }
         .controls {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr; /* Only one control now */
             gap: 1rem;
             margin-bottom: 1rem;
         }
@@ -84,20 +84,9 @@
 </head>
 <body>
     <div id="app">
-        <h1>TTS Robot</h1>
-        <textarea id="text-input" placeholder="Enter text to synthesize..."></textarea>
+        <h1>TTS Robot (Darija)</h1>
+        <textarea id="text-input" placeholder="Enter Darija text to synthesize..."></textarea>
         <div class="controls">
-            <div>
-                <label for="voice-select">Voice</label>
-                <select id="voice-select">
-                    <option value="alloy">Alloy</option>
-                    <option value="echo">Echo</option>
-                    <option value="fable">Fable</option>
-                    <option value="onyx">Onyx</option>
-                    <option value="nova">Nova</option>
-                    <option value="shimmer">Shimmer</option>
-                </select>
-            </div>
             <div>
                 <label for="speed-control">Speed</label>
                 <input type="range" id="speed-control" min="0.5" max="2.0" step="0.1" value="1.0">
@@ -111,15 +100,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const textInput = document.getElementById('text-input');
-            const voiceSelect = document.getElementById('voice-select');
             const speedControl = document.getElementById('speed-control');
             const generateBtn = document.getElementById('generate-btn');
             const statusDiv = document.getElementById('status');
             const audioOutput = document.getElementById('audio-output');
 
-            // Set the model name from the user's request.
-            const OLLAMA_MODEL = 'OuteAI/Llama-OuteTTS-1.0-1B-GGUF:Q4_K_M';
-            // The user specified a remote server.
+            // Switched to the Darija TTS model as per user request.
+            const OLLAMA_MODEL = 'KandirResearch/DarijaTTS-v0.1-500M:Q8_0';
             const OLLAMA_API_URL = 'http://remoteServer:11434/api/tts';
 
             generateBtn.addEventListener('click', async () => {
@@ -143,7 +130,7 @@
                             model: OLLAMA_MODEL,
                             text: text,
                             options: {
-                                voice: voiceSelect.value,
+                                // Voice selection removed as it's not applicable for this model.
                                 speed: parseFloat(speedControl.value),
                             }
                         }),

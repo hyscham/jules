@@ -1,13 +1,13 @@
-# TTS Robot Frontend
+# Darija TTS Robot Frontend
 
-This project provides a simple web interface for a text-to-speech (TTS) service powered by a remote Ollama server. It allows you to enter text, choose a voice, and adjust the speed of the speech.
+This project provides a simple web interface for a text-to-speech (TTS) service powered by a remote Ollama server. It is specifically configured to generate speech in **Darija (Moroccan Arabic)**.
 
 ## How to Use
 
-1.  Ensure you have a remote Ollama server running and accessible. The server should be running the `OuteAI/Llama-OuteTTS-1.0-1B-GGUF:Q4_K_M` model.
+1.  Ensure you have a remote Ollama server running and accessible. The server must be running the `KandirResearch/DarijaTTS-v0.1-500M:Q8_0` model. You can pull it with `ollama pull KandirResearch/DarijaTTS-v0.1-500M:Q8_0`.
 2.  Open the `frontend/index.html` file in your web browser.
-3.  Enter the text you want to convert to speech in the text area.
-4.  Select a voice and adjust the speed using the controls.
+3.  Enter the text you want to convert to speech in the text area. The text should be in Darija.
+4.  Adjust the speed using the control.
 5.  Click the "Generate Speech" button.
 6.  The generated audio will play automatically and can be controlled with the audio player.
 
